@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jardín Botánico La Laguna</title>
+
+    <style>
+        /* =========================
+           VARIABLES Y ESTILOS GENERALES
+        ========================== */
+
+        :root {
+            --verde-principal: #1f5c3a;
+            --verde-claro: #4f8a63;
+            --verde-suave: #eaf4ec;
+            --verde-oscuro: #123524;
+            --crema: #f7f4ed;
+            --blanco: #ffffff;
+            --texto: #333333;
+            --gris: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background-color: var(--crema);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 15px;
+            color: var(--verde-principal);
+            font-size: 2.2rem;
+        }
+
+        .subtitulo-seccion {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--gris);
+        }
+
+        /* =========================
+           BOTONES
+        ========================== */
+
+        .boton {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .boton-principal {
+            background-color: var(--verde-principal);
+            color: white;
+        }
+
+        .boton-principal:hover {
+            background-color: var(--verde-oscuro);
+            transform: translateY(-2px);
+        }
+
+        .boton-secundario {
+            border: 2px solid white;
+            color: white;
+            margin-left: 10px;
+        }
+
+        .boton-secundario:hover {
+            background-color: white;
+            color: var(--verde-principal);
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background-color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .barra-navegacion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 75px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--verde-principal);
+        }
+
+        .logo-icono {
+            font-size: 2rem;
+        }
+
+        .logo-texto {
+            font-weight: bold;
+            line-height: 1.1;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--texto);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--verde-principal);
+        }
+
+        .menu-boton {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(
+                    rgba(18, 53, 36, 0.60),
+                    rgba(18, 53, 36, 0.60)
+                ),
+                url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1800&q=80");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-contenido {
+            max-width: 750px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            max-width: 650px;
+        }
+
+        /* =========================
+           ESTADÍSTICAS
+        ========================== */
+
+        .estadisticas {
+            background-color: var(--verde-principal);
+            color: white;
+            padding: 50px 0;
+        }
+
+        .estadisticas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            text-align: center;
+            gap: 30px;
+        }
+
+        .estadistica h2 {
+            font-size: 2.8rem;
+        }
+
+        .estadistica p {
+            font-size: 1.1rem;
+        }
+
+        /* =========================
+           EXPERIENCIAS
+        ========================== */
+
+        .experiencias {
+            padding: 90px 0;
+            background-color: white;
+        }
+
+        .tarjetas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: var(--crema);
+            padding: 30px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .tarjeta-icono {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta h3 {
+            color: var(--verde-principal);
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           COLECCIONES
+        ========================== */
+
+        .colecciones {
+            padding: 90px 0;
+            background-color: var(--verde-suave);
+        }
+
+        .colecciones-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .coleccion {
+            background-color: white;
+            padding: 35px 20px;
+            text-align: center;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .coleccion:hover {
+            background-color: var(--verde-principal);
+            color: white;
+            transform: scale(1.04);
+        }
+
+        .coleccion-icono {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           PLANIFICA TU VISITA
+        ========================== */
+
+        .visita {
+            padding: 90px 0;
+            background-color: white;
+        }
+
+        .visita-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .visita-item {
+            padding: 30px;
+            border-radius: 15px;
+            background-color: var(--crema);
+            text-align: center;
+        }
+
+        .visita-item span {
+            font-size: 3rem;
+        }
+
+        .visita-item h3 {
+            color: var(--verde-principal);
+            margin: 15px 0 10px;
+        }
+
+        /* =========================
+           REGLAMENTO
+        ========================== */
+
+        .reglamento {
+            padding: 80px 0;
+            background-color: var(--verde-oscuro);
+            color: white;
+        }
+
+        .reglamento .titulo-seccion {
+            color: white;
+        }
+
+        .reglas-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .reglas {
+            background-color: rgba(255,255,255,0.08);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .reglas h3 {
+            margin-bottom: 20px;
+        }
+
+        .reglas ul {
+            padding-left: 20px;
+        }
+
+        .reglas li {
+            margin-bottom: 12px;
+        }
+
+        /* =========================
+           HISTORIA
+        ========================== */
+
+        .historia {
+            padding: 90px 0;
+            background-color: var(--crema);
+        }
+
+        .linea-tiempo {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .evento {
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 5px solid var(--verde-principal);
+        }
+
+        .evento h3 {
+            color: var(--verde-principal);
+            font-size: 1.7rem;
+            margin-bottom: 10px;
+        }
+
+        /* =========================
+           CONTACTO
+        ========================== */
+
+        .contacto {
+            padding: 90px 0;
+            background-color: white;
+        }
+
+        .contacto-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .informacion-contacto {
+            background-color: var(--verde-suave);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .informacion-contacto h3 {
+            color: var(--verde-oscuro);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .dato-contacto {
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        button[type="submit"] {
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background-color: #10271b;
+            color: white;
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .tarjetas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .colecciones-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .linea-tiempo {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contacto-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .menu-boton {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                padding: 20px;
+            }
+
+            nav.activo {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .boton-secundario {
+                display: block;
+                margin: 15px 0 0;
+                text-align: center;
+            }
+
+            .estadisticas-grid,
+            .tarjetas-grid,
+            .colecciones-grid,
+            .visita-grid,
+            .linea-tiempo,
+            .reglas-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo-seccion {
+                font-size: 1.8rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+
+        <div class="contenedor barra-navegacion">
+
+            <a href="#inicio" class="logo">
+                <div class="logo-icono">🌿</div>
+
+                <div class="logo-texto">
+                    Jardín Botánico<br>
+                    La Laguna
+                </div>
+            </a>
+
+            <button class="menu-boton" id="menu-boton">
+                ☰
+            </button>
+
+            <nav id="menu">
+
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#experiencias">Explora</a></li>
+                    <li><a href="#colecciones">Colecciones</a></li>
+                    <li><a href="#visita">Visita</a></li>
+                    <li><a href="#historia">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="inicio">
+
+        <div class="contenedor hero-contenido">
+
+            <h1>
+                Conecta con la naturaleza
+            </h1>
+
+            <p>
+                Descubre un espacio único donde la biodiversidad,
+                la educación y la conservación se encuentran.
+            </p>
+
+            <a href="#visita" class="boton boton-principal">
+                Planifica tu visita
+            </a>
+
+            <a href="#contacto" class="boton boton-secundario">
+                Contáctanos
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ESTADÍSTICAS
+    ========================== -->
+
+    <section class="estadisticas">
+
+        <div class="contenedor estadisticas-grid">
+
+            <div class="estadistica">
+                <h2>3,500+</h2>
+                <p>Especies de plantas</p>
+            </div>
+
+            <div class="estadistica">
+                <h2>32</h2>
+                <p>Zonas de colección</p>
+            </div>
+
+            <div class="estadistica">
+                <h2>60</h2>
+                <p>Manzanas de extensión</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCIAS
+    ========================== -->
+
+    <section class="experiencias" id="experiencias">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Descubre el Jardín
+            </h2>
+
+            <p class="subtitulo-seccion">
+                Un lugar para aprender, explorar, compartir y disfrutar
+                de la naturaleza.
+            </p>
+
+            <div class="tarjetas-grid">
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">🌺</div>
+
+                    <h3>Colecciones de plantas</h3>
+
+                    <p>
+                        Explora diferentes especies de plantas organizadas
+                        en zonas y colecciones especializadas.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">👨‍👩‍👧</div>
+
+                    <h3>Un espacio para todos</h3>
+
+                    <p>
+                        Disfruta áreas para compartir en familia,
+                        espacios de picnic y zonas recreativas.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">🎓</div>
+
+                    <h3>Educación</h3>
+
+                    <p>
+                        Aprende sobre biodiversidad mediante visitas
+                        escolares y experiencias educativas.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">🔬</div>
+
+                    <h3>Investigación</h3>
+
+                    <p>
+                        Conoce el trabajo de investigación y conservación
+                        de la flora salvadoreña.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">🌱</div>
+
+                    <h3>Vivero</h3>
+
+                    <p>
+                        Encuentra plantas ornamentales, frutales,
+                        flores, macetas y otros productos.
+                    </p>
+
+                </article>
+
+
+                <article class="tarjeta">
+
+                    <div class="tarjeta-icono">🎉</div>
+
+                    <h3>Eventos</h3>
+
+                    <p>
+                        Consulta sobre espacios para celebraciones,
+                        actividades y eventos especiales.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         COLECCIONES
+    ========================== -->
+
+    <section class="colecciones" id="colecciones">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Explora nuestras colecciones
+            </h2>
+
+            <p class="subtitulo-seccion">
+                Algunas de las diferentes colecciones que puedes encontrar
+                durante tu recorrido.
+            </p>
+
+
+            <div class="colecciones-grid">
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌴</div>
+                    <h3>Palmeras</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌸</div>
+                    <h3>Orquídeas</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌿</div>
+                    <h3>Helechos</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌺</div>
+                    <h3>Bromelias</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">💧</div>
+                    <h3>Plantas acuáticas</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌱</div>
+                    <h3>Medicinales</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🌲</div>
+                    <h3>Coníferas</h3>
+                </div>
+
+                <div class="coleccion">
+                    <div class="coleccion-icono">🍌</div>
+                    <h3>Musáceas</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLANIFICA TU VISITA
+    ========================== -->
+
+    <section class="visita" id="visita">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Planifica tu visita
+            </h2>
+
+            <p class="subtitulo-seccion">
+                Todo lo que necesitas saber antes de venir.
+            </p>
+
+
+            <div class="visita-grid">
+
+                <div class="visita-item">
+
+                    <span>🕘</span>
+
+                    <h3>Horario</h3>
+
+                    <p>
+                        Martes a domingo
+                    </p>
+
+                    <strong>
+                        9:00 a.m. – 5:30 p.m.
+                    </strong>
+
+                </div>
+
+
+                <div class="visita-item">
+
+                    <span>🎟️</span>
+
+                    <h3>Entrada</h3>
+
+                    <p>
+                        Adultos: $2.00
+                    </p>
+
+                    <p>
+                        Niños de 2 a 12 años: $1.50
+                    </p>
+
+                </div>
+
+
+                <div class="visita-item">
+
+                    <span>📍</span>
+
+                    <h3>Ubicación</h3>
+
+                    <p>
+                        Jardín Botánico La Laguna
+                    </p>
+
+                    <a
+                        href="https://www.google.com/maps"
+                        target="_blank"
+                        class="boton boton-principal"
+                    >
+                        Ver ubicación
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         REGLAMENTO
+    ========================== -->
+
+    <section class="reglamento">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Disfrutemos y protejamos el Jardín
+            </h2>
+
+            <div class="reglas-grid">
+
+                <div class="reglas">
+
+                    <h3>✓ Está permitido</h3>
+
+                    <ul>
+                        <li>Ingresar alimentos ya preparados.</li>
+                        <li>Ingresar bebidas sin alcohol.</li>
+                        <li>Disfrutar responsablemente de las áreas públicas.</li>
+                        <li>Aprender y conocer la biodiversidad del jardín.</li>
+                    </ul>
+
+                </div>
+
+
+                <div class="reglas">
+
+                    <h3>✕ No está permitido</h3>
+
+                    <ul>
+                        <li>Ingresar con mascotas.</li>
+                        <li>Ingresar bicicletas o pelotas.</li>
+                        <li>Fumar dentro del jardín.</li>
+                        <li>Dañar, cortar o extraer plantas.</li>
+                        <li>Molestar o llevarse animales.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HISTORIA
+    ========================== -->
+
+    <section class="historia" id="historia">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Nuestra historia
+            </h2>
+
+            <p class="subtitulo-seccion">
+                Un espacio natural con una historia que se remonta a miles
+                de años.
+            </p>
+
+
+            <div class="linea-tiempo">
+
+                <div class="evento">
+
+                    <h3>Hace más de 2,200 años</h3>
+
+                    <p>
+                        Una erupción volcánica dio origen al cráter donde
+                        posteriormente se formó una laguna.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>1873</h3>
+
+                    <p>
+                        Después del terremoto de San José, el nivel de
+                        la laguna disminuyó considerablemente.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>1976</h3>
+
+                    <p>
+                        Se constituyó legalmente la Asociación Jardín
+                        Botánico La Laguna.
+                    </p>
+
+                </div>
+
+
+                <div class="evento">
+
+                    <h3>1978</h3>
+
+                    <p>
+                        El Jardín Botánico La Laguna abrió sus puertas
+                        al público.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section class="contacto" id="contacto">
+
+        <div class="contenedor">
+
+            <h2 class="titulo-seccion">
+                Contáctanos
+            </h2>
+
+            <p class="subtitulo-seccion">
+                ¿Tienes alguna pregunta? Estamos aquí para ayudarte.
+            </p>
+
+
+            <div class="contacto-grid">
+
+                <div class="informacion-contacto">
+
+                    <h3>
+                        Información de contacto
+                    </h3>
+
+                    <div class="dato-contacto">
+
+                        <strong>📞 Teléfono</strong>
+
+                        <p>
+                            (503) 2243-2012
+                        </p>
+
+                        <p>
+                            (503) 2243-2013
+                        </p>
+
+                    </div>
+
+
+                    <div class="dato-contacto">
+
+                        <strong>✉️ Correo electrónico</strong>
+
+                        <p>
+                            jardinbotanico@jardinbotanico.org.sv
+                        </p>
+
+                    </div>
+
+
+                    <div class="dato-contacto">
+
+                        <strong>🌿 Vivero</strong>
+
+                        <p>
+                            Lunes a domingo
+                        </p>
+
+                        <p>
+                            8:00 a.m. – 6:00 p.m.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="formulario">
+
+                    <input
+                        type="text"
+                        placeholder="Tu nombre"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        placeholder="Tu correo electrónico"
+                        required
+                    >
+
+                    <input
+                        type="tel"
+                        placeholder="Tu teléfono"
+                    >
+
+                    <textarea
+                        placeholder="Escribe tu mensaje"
+                        required
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        class="boton boton-principal"
+                    >
+                        Enviar mensaje
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="contenedor">
+
+            <p>
+                🌿 Jardín Botánico La Laguna
+            </p>
+
+            <p>
+                Un espacio dedicado a la conservación,
+                educación e investigación de la biodiversidad.
+            </p>
+
+            <p>
+                © 2026 - Propuesta de rediseño web
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const botonMenu =
+            document.getElementById("menu-boton");
+
+        const menu =
+            document.getElementById("menu");
+
+
+        botonMenu.addEventListener("click", function() {
+
+            menu.classList.toggle("activo");
+
+        });
+
+
+        const formulario =
+            document.getElementById("formulario");
+
+
+        formulario.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "¡Gracias por contactarnos! Tu mensaje ha sido enviado."
+            );
+
+            formulario.reset();
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Propuesta de rediseño del Jardín Botánico La Laguna">
+<title>Jardín Botánico La Laguna | Conecta con la naturaleza</title>
+
+<style>
+:root{
+    --green-950:#0d2b1b;
+    --green-900:#123d27;
+    --green-800:#1b5938;
+    --green-700:#2c754b;
+    --green-500:#5d9b70;
+    --green-100:#e9f3eb;
+    --cream:#f7f4ec;
+    --sand:#e9dfca;
+    --white:#fff;
+    --ink:#203027;
+    --muted:#66736c;
+    --shadow:0 16px 45px rgba(13,43,27,.12);
+    --radius:22px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+}
+img{width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+button{cursor:pointer}
+.container{width:min(1180px,92%);margin:auto}
+.section{padding:92px 0}
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--green-700);
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.78rem;
+    margin-bottom:12px;
+}
+.section-title{
+    font-family:Georgia,serif;
+    color:var(--green-950);
+    font-size:clamp(2rem,4vw,3.3rem);
+    line-height:1.08;
+    margin-bottom:16px;
+}
+.section-intro{max-width:720px;color:var(--muted);font-size:1.05rem}
+.center{text-align:center}
+.center .section-intro{margin:auto}
+
+/* Header */
+header{
+    position:fixed;
+    inset:0 0 auto;
+    z-index:1000;
+    background:rgba(255,255,255,.93);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(18,61,39,.08);
+}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--green-900)}
+.brand img{width:48px;height:48px;object-fit:contain}
+.brand span{line-height:1.05}
+.nav-links{display:flex;align-items:center;gap:25px;list-style:none}
+.nav-links a{font-weight:700;font-size:.93rem}
+.nav-links a:hover{color:var(--green-700)}
+.nav-cta{
+    background:var(--green-800);
+    color:#fff!important;
+    padding:11px 17px;
+    border-radius:999px;
+}
+.menu-btn{display:none;border:0;background:none;font-size:1.7rem;color:var(--green-900)}
+
+/* Hero */
+.hero{
+    min-height:780px;
+    position:relative;
+    overflow:hidden;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    padding-top:76px;
+}
+.hero-slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transition:opacity .8s ease;
+    background-size:cover;
+    background-position:center;
+}
+.hero-slide.active{opacity:1}
+.hero-slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(90deg,rgba(7,31,19,.82),rgba(7,31,19,.32),rgba(7,31,19,.1));
+}
+.hero-content{position:relative;z-index:2;max-width:760px;padding:110px 0 80px}
+.hero-kicker{
+    display:inline-block;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 14px;
+    border-radius:999px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+.hero h1{
+    font-family:Georgia,serif;
+    font-size:clamp(3rem,7vw,6rem);
+    line-height:.98;
+    margin-bottom:24px;
+}
+.hero p{font-size:1.2rem;max-width:650px;margin-bottom:30px;color:#f4f7f4}
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    border:0;
+    border-radius:999px;
+    padding:14px 21px;
+    font-weight:800;
+    transition:.25s;
+}
+.btn-primary{background:#fff;color:var(--green-900)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(0,0,0,.15)}
+.btn-outline{border:1px solid rgba(255,255,255,.7);color:#fff;margin-left:8px}
+.btn-outline:hover{background:#fff;color:var(--green-900)}
+.slider-controls{
+    position:absolute;
+    z-index:3;
+    right:4%;
+    bottom:34px;
+    display:flex;
+    gap:8px;
+}
+.slider-dot{
+    width:10px;height:10px;border:0;border-radius:50%;
+    background:rgba(255,255,255,.45);
+}
+.slider-dot.active{background:#fff;width:30px;border-radius:999px}
+
+/* Quick info */
+.quick-info{
+    position:relative;
+    z-index:5;
+    margin-top:-58px;
+}
+.quick-card{
+    background:#fff;
+    box-shadow:var(--shadow);
+    border-radius:var(--radius);
+    padding:24px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+.quick-item{display:flex;gap:13px;align-items:center;padding:6px 10px}
+.quick-icon{font-size:1.7rem}
+.quick-item strong{display:block;color:var(--green-900)}
+.quick-item span{font-size:.9rem;color:var(--muted)}
+
+/* Explore intro */
+.story-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:58px;
+    align-items:center;
+}
+.story-image{height:520px;border-radius:30px;overflow:hidden;box-shadow:var(--shadow)}
+.story-image img{height:100%}
+.story-copy p{margin:0 0 18px;color:var(--muted)}
+.support-box{
+    margin-top:26px;
+    background:var(--green-900);
+    color:#fff;
+    border-radius:24px;
+    padding:28px;
+    position:relative;
+    overflow:hidden;
+}
+.support-box::before{
+    content:"";
+    position:absolute;width:170px;height:170px;border-radius:50%;
+    right:-60px;top:-70px;background:rgba(255,255,255,.07);
+}
+.support-box h3{font-family:Georgia,serif;font-size:1.7rem;margin-bottom:10px}
+.support-box p{color:#e7efe9;margin:0}
+.support-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pill{background:rgba(255,255,255,.11);padding:7px 11px;border-radius:999px;font-size:.85rem}
+
+/* Exploration cards */
+.explore{background:#fff}
+.explore-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:24px;
+    margin-top:42px;
+}
+.explore-card{
+    display:grid;
+    grid-template-columns:210px 1fr;
+    min-height:250px;
+    border:1px solid rgba(18,61,39,.1);
+    border-radius:24px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(18,61,39,.06);
+    transition:.25s;
+}
+.explore-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.explore-card img{height:100%}
+.explore-body{padding:25px}
+.explore-tag{font-size:.76rem;text-transform:uppercase;color:var(--green-700);font-weight:800}
+.explore-body h3{font-family:Georgia,serif;font-size:1.65rem;color:var(--green-950);margin:7px 0 10px}
+.explore-body p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+.text-link{font-weight:800;color:var(--green-700)}
+.text-link:hover{text-decoration:underline}
+
+/* Flora & fauna */
+.catalog{background:var(--green-100)}
+.catalog-toolbar{
+    display:flex;justify-content:space-between;align-items:end;gap:20px;
+    margin:38px 0 22px;flex-wrap:wrap;
+}
+.search{
+    width:min(390px,100%);
+    padding:14px 17px;
+    border:1px solid #cbd9ce;
+    border-radius:999px;
+    background:#fff;
+    outline:none;
+}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{
+    border:1px solid #cbd9ce;background:#fff;color:var(--green-900);
+    border-radius:999px;padding:9px 14px;font-weight:700;
+}
+.filter.active,.filter:hover{background:var(--green-800);color:#fff;border-color:var(--green-800)}
+.catalog-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.species-card{
+    background:#fff;border-radius:20px;overflow:hidden;
+    border:1px solid rgba(18,61,39,.08);
+    transition:.25s;
+}
+.species-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.species-card img{height:220px}
+.species-info{padding:20px}
+.badge{display:inline-block;background:var(--green-100);color:var(--green-800);font-size:.75rem;font-weight:800;padding:5px 9px;border-radius:999px}
+.species-info h3{font-family:Georgia,serif;margin:9px 0 2px;color:var(--green-950)}
+.scientific{font-style:italic;color:var(--muted);font-size:.88rem}
+.species-info p{color:var(--muted);font-size:.9rem;margin:10px 0}
+.price{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:13px;border-top:1px solid #e6ebe7;margin-top:12px
+}
+.price strong{color:var(--green-800)}
+.price small{color:var(--muted)}
+.catalog-note{
+    margin-top:22px;padding:18px 20px;background:#fff8e9;border-left:4px solid #c38b2b;
+    border-radius:12px;color:#6b5427
+}
+
+/* Experiences */
+.experiences{background:var(--cream)}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.feature{
+    position:relative;min-height:420px;border-radius:28px;overflow:hidden;color:#fff;
+    display:flex;align-items:flex-end;
+}
+.feature img{position:absolute;inset:0;height:100%}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(6,27,16,.9))}
+.feature-content{position:relative;z-index:1;padding:34px;max-width:650px}
+.feature-content h3{font-family:Georgia,serif;font-size:2rem;margin-bottom:8px}
+.feature-content p{color:#e9f1eb;margin-bottom:15px}
+
+/* Education */
+.education{background:#fff}
+.edu-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:50px;align-items:start;margin-top:42px}
+.edu-image{height:500px;border-radius:28px;overflow:hidden}
+.edu-image img{height:100%}
+.edu-list{display:grid;gap:15px}
+.edu-item{
+    display:grid;grid-template-columns:54px 1fr;gap:15px;
+    padding:18px;border:1px solid #e0e7e2;border-radius:18px
+}
+.edu-icon{
+    width:54px;height:54px;border-radius:15px;background:var(--green-100);
+    display:grid;place-items:center;font-size:1.45rem
+}
+.edu-item h3{color:var(--green-900);margin-bottom:4px}
+.edu-item p{color:var(--muted);font-size:.93rem}
+
+/* Research */
+.research{
+    margin-top:35px;background:var(--green-950);color:#fff;border-radius:28px;padding:35px;
+    display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center
+}
+.research h3{font-family:Georgia,serif;font-size:1.9rem;margin-bottom:8px}
+.research p{color:#d9e5dc;max-width:760px}
+.research .btn{background:#fff;color:var(--green-900);margin-top:17px}
+
+/* Visit */
+.visit{background:var(--cream)}
+.visit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.visit-card{background:#fff;border-radius:22px;padding:30px;box-shadow:0 8px 25px rgba(18,61,39,.05)}
+.visit-card .big-icon{font-size:2rem}
+.visit-card h3{color:var(--green-900);font-family:Georgia,serif;font-size:1.5rem;margin:10px 0}
+.visit-card p,.visit-card li{color:var(--muted)}
+.visit-card ul{padding-left:20px;margin-top:10px}
+.visit-card li{margin:5px 0}
+.map-link{display:inline-block;margin-top:15px;color:var(--green-700);font-weight:800}
+.rules{margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.rule-box{border-radius:20px;padding:25px;background:#fff}
+.rule-box h3{margin-bottom:10px;color:var(--green-900)}
+.rule-box ul{padding-left:20px;color:var(--muted)}
+
+/* About */
+.about{background:#fff}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:42px}
+.event{background:var(--cream);padding:24px;border-radius:20px;border-top:5px solid var(--green-700)}
+.event .year{font-size:1.7rem;font-weight:900;color:var(--green-800);margin-bottom:7px}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:25px}
+.fact{padding:20px;background:var(--green-100);border-radius:17px}
+.fact strong{display:block;font-size:1.5rem;color:var(--green-900)}
+.fact span{font-size:.85rem;color:var(--muted)}
+
+/* Contact */
+.contact{background:var(--green-100)}
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;margin-top:40px}
+.contact-card{background:var(--green-900);color:#fff;border-radius:25px;padding:34px}
+.contact-card h3{font-family:Georgia,serif;font-size:2rem;margin-bottom:20px}
+.contact-row{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.contact-row strong{display:block}
+.contact-row span{color:#dce8df}
+.form-card{background:#fff;border-radius:25px;padding:34px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-card input,.form-card textarea{
+    width:100%;border:1px solid #d7e0da;border-radius:12px;padding:13px 14px;outline:none;background:#fbfcfb
+}
+.form-card textarea{min-height:150px;resize:vertical;grid-column:1/-1}
+.form-card button{background:var(--green-800);color:#fff;border:0;margin-top:14px}
+
+/* Footer */
+footer{background:var(--green-950);color:#dce8df;padding:35px 0}
+.footer-grid{display:flex;justify-content:space-between;gap:25px;flex-wrap:wrap}
+footer strong{color:#fff}
+footer p{font-size:.88rem}
+
+/* Modal */
+.modal{
+    position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:2000;
+    display:none;place-items:center;padding:20px
+}
+.modal.open{display:grid}
+.modal-box{
+    background:#fff;width:min(900px,100%);max-height:90vh;overflow:auto;
+    border-radius:28px;position:relative
+}
+.modal-close{
+    position:absolute;right:16px;top:16px;width:42px;height:42px;border:0;border-radius:50%;
+    background:rgba(255,255,255,.9);font-size:1.4rem;z-index:2
+}
+.modal-img{height:330px}
+.modal-body{padding:30px}
+.modal-body h2{font-family:Georgia,serif;color:var(--green-950);font-size:2.3rem}
+.modal-body p{color:var(--muted);margin:12px 0}
+.modal-body ul{padding-left:20px;color:var(--muted)}
+.modal-body .modal-price{
+    margin-top:20px;background:var(--green-100);padding:16px;border-radius:15px;
+    color:var(--green-900);font-weight:800
+}
+
+/* Responsive */
+@media(max-width:980px){
+    .nav-links{gap:15px}
+    .quick-card{grid-template-columns:repeat(2,1fr)}
+    .story-grid,.feature-grid,.edu-grid,.contact-grid{grid-template-columns:1fr}
+    .catalog-grid{grid-template-columns:repeat(2,1fr)}
+    .timeline{grid-template-columns:repeat(2,1fr)}
+    .facts{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+    .menu-btn{display:block}
+    .nav-links{
+        position:absolute;top:76px;left:0;right:0;background:#fff;
+        display:none;flex-direction:column;align-items:stretch;padding:20px 4%
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{display:block;padding:8px 0}
+    .nav-cta{text-align:center}
+    .hero{min-height:700px}
+    .hero-content{padding-top:120px}
+    .hero h1{font-size:3.3rem}
+    .quick-card{grid-template-columns:1fr}
+    .explore-grid,.catalog-grid,.visit-grid,.rules{grid-template-columns:1fr}
+    .explore-card{grid-template-columns:1fr}
+    .explore-card img{height:230px}
+    .story-image,.edu-image{height:380px}
+    .timeline,.facts{grid-template-columns:1fr}
+    .form-grid{grid-template-columns:1fr}
+    .modal-img{height:240px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+        <a class="brand" href="#inicio">
+            <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo Jardín Botánico La Laguna">
+            <span>Jardín Botánico<br>La Laguna</span>
+        </a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#explora">Explora</a></li>
+                <li><a href="#visita">Visita</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a class="nav-cta" href="#visita">Planifica tu visita</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <div class="hero-slide active" style="background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20240905_065002-1920w.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg')"></div>
+
+    <div class="container hero-content">
+        <span class="hero-kicker">Un refugio verde en El Salvador</span>
+        <h1>Conecta con la naturaleza.</h1>
+        <p>Recorre senderos, descubre especies, conoce nuestra fauna y vive una experiencia de aprendizaje y conservación en el Jardín Botánico La Laguna.</p>
+        <a class="btn btn-primary" href="#explora">Explorar el jardín →</a>
+        <a class="btn btn-outline" href="#visita">Planifica tu visita</a>
+    </div>
+
+    <div class="slider-controls" id="sliderControls"></div>
+</section>
+
+<div class="container quick-info">
+    <div class="quick-card">
+        <div class="quick-item"><span class="quick-icon">🕘</span><div><strong>Martes a domingo</strong><span>9:00 a. m. – 5:30 p. m.</span></div></div>
+        <div class="quick-item"><span class="quick-icon">🎟️</span><div><strong>Entrada</strong><span>Adultos $2.00 · Niños $1.50</span></div></div>
+        <div class="quick-item"><span class="quick-icon">🌱</span><div><strong>Vivero</strong><span>Todos los días · 8:00 a. m. – 6:00 p. m.</span></div></div>
+        <div class="quick-item"><span class="quick-icon">📍</span><div><strong>Plan de La Laguna</strong><span>Antiguo Cuscatlán, La Libertad</span></div></div>
+    </div>
+</div>
+
+<section class="section" id="explora">
+    <div class="container story-grid">
+        <div class="story-image">
+            <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg" alt="Estanque con plantas acuáticas del Jardín Botánico">
+        </div>
+
+        <div class="story-copy">
+            <span class="eyebrow">Explora · Conservación</span>
+            <h2 class="section-title">Un jardín que también necesita de ti.</h2>
+            <p>El Jardín Botánico La Laguna es administrado por una asociación privada, apolítica y sin fines de lucro. Su trabajo de conservación, educación e investigación se sostiene mediante los ingresos que genera el propio jardín.</p>
+            <p>Visitar el parque, comprar en el vivero, adquirir literatura o souvenirs, tomar cursos y contratar servicios de mantenimiento son formas directas de contribuir a que este espacio continúe funcionando.</p>
+
+            <div class="support-box">
+                <h3>Tu visita ayuda a conservarlo.</h3>
+                <p>El jardín no recibe subsidios ni ayuda gubernamental, ni donativos de entidades fuera de El Salvador. Cada visita forma parte de su modelo de sostenibilidad.</p>
+                <div class="support-list">
+                    <span class="pill">Ingreso al parque</span>
+                    <span class="pill">Vivero</span>
+                    <span class="pill">Membresías</span>
+                    <span class="pill">Cursos</span>
+                    <span class="pill">Mantenimiento</span>
+                    <span class="pill">Literatura y souvenirs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section explore" id="experiencias">
+    <div class="container">
+        <div class="center">
+            <span class="eyebrow">Descubre el jardín</span>
+            <h2 class="section-title">Ahora cada sección te lleva a algún lugar.</h2>
+            <p class="section-intro">En lugar de tarjetas que parecen botones sin destino, cada experiencia abre información concreta sobre lo que puedes conocer o hacer.</p>
+        </div>
+
+        <div class="explore-grid">
+            <article class="explore-card">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg" alt="Vivero y plantas ornamentales">
+                <div class="explore-body">
+                    <span class="explore-tag">Flora + vivero</span>
+                    <h3>Conoce las plantas</h3>
+                    <p>Explora fichas de especies, grupos botánicos, plantas de interés y una sección de vivero. El precio de cada planta puede mostrarse aquí cuando el vivero publique su lista vigente.</p>
+                    <a class="text-link" href="#flora">Explorar flora y vivero →</a>
+                </div>
+            </article>
+
+            <article class="explore-card">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20240905_065002-1920w.jpg" alt="Fauna del jardín">
+                <div class="explore-body">
+                    <span class="explore-tag">Fauna</span>
+                    <h3>Descubre quiénes habitan aquí</h3>
+                    <p>Aves, iguanas, cotuzas, tortugas, peces y otros animales forman parte del ecosistema del jardín. Aprende a observarlos sin molestarlos.</p>
+                    <a class="text-link" href="#fauna">Ver fauna →</a>
+                </div>
+            </article>
+
+            <article class="explore-card">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg" alt="Área verde y senderos">
+                <div class="explore-body">
+                    <span class="explore-tag">Familias + eventos</span>
+                    <h3>Un espacio para compartir</h3>
+                    <p>Conoce las áreas recreativas y las posibilidades para celebraciones, reuniones, seminarios y recorridos guiados.</p>
+                    <a class="text-link" href="#eventos">Ver actividades →</a>
+                </div>
+            </article>
+
+            <article class="explore-card">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg" alt="Colección de plantas acuáticas">
+                <div class="explore-body">
+                    <span class="explore-tag">Educación + investigación</span>
+                    <h3>Aprende con el jardín</h3>
+                    <p>Visitas escolares, recorridos, biblioteca, herbario e investigaciones botánicas convierten al jardín en un espacio para aprender.</p>
+                    <a class="text-link" href="#educacion">Conocer el área científica →</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section catalog" id="flora">
+    <div class="container">
+        <span class="eyebrow">Flora + vivero</span>
+        <h2 class="section-title">Una pequeña guía para comenzar a explorar.</h2>
+        <p class="section-intro">La idea es que esta sección funcione como un catálogo visual: buscar, filtrar y abrir una ficha de cada especie. Los precios del vivero se dejan como “Consultar” hasta contar con una lista oficial y actualizada; así evitamos inventar precios.</p>
+
+        <div class="catalog-toolbar">
+            <input class="search" id="speciesSearch" type="search" placeholder="Buscar planta por nombre...">
+            <div class="filters">
+                <button class="filter active" data-filter="all">Todas</button>
+                <button class="filter" data-filter="cactus">Cactáceas</button>
+                <button class="filter" data-filter="ornamental">Ornamentales</button>
+                <button class="filter" data-filter="acuaticas">Acuáticas</button>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="speciesGrid"></div>
+
+        <div class="catalog-note">
+            <strong>Sobre los precios:</strong> el sitio oficial confirma que el vivero ofrece plantas ornamentales, flores de estación, frutales, sustratos, macetas y fertilizantes, pero no publica una lista de precios vigente. En esta propuesta el precio queda preparado para conectarlo posteriormente con el inventario real del vivero.
+        </div>
+    </div>
+</section>
+
+<section class="section" id="fauna">
+    <div class="container">
+        <span class="eyebrow">Fauna</span>
+        <h2 class="section-title">No solo vienes a ver plantas.</h2>
+        <p class="section-intro">El jardín también funciona como hábitat y refugio para diferentes especies. Las fichas pueden crecer con fotografías y observaciones de visitantes.</p>
+
+        <div class="catalog-grid" style="margin-top:40px">
+            <article class="species-card">
+                <img src="https://www.noticiaslagaceta.com/wp-content/uploads/2023/11/jardin-botanico-la-laguna.jpg" alt="Hábitat acuático">
+                <div class="species-info">
+                    <span class="badge">Fauna acuática</span>
+                    <h3>Peces y tortugas</h3>
+                    <p>Los estanques del jardín forman parte del recorrido y permiten observar vida asociada al agua.</p>
+                </div>
+            </article>
+
+            <article class="species-card">
+                <img src="https://www.bridgeandtunnelclub.com/bigmap/outoftown/elsalvador/sansalvador/jardinbotanicoplandelalaguna/8408-16-24.jpg" alt="Iguanas en el jardín">
+                <div class="species-info">
+                    <span class="badge">Reptiles</span>
+                    <h3>Iguanas</h3>
+                    <p>Una de las especies que visitantes pueden encontrar durante sus recorridos por el jardín.</p>
+                </div>
+            </article>
+
+            <article class="species-card">
+                <img src="https://www.bridgeandtunnelclub.com/bigmap/outoftown/elsalvador/birds/index.htm" alt="Aves de El Salvador">
+                <div class="species-info">
+                    <span class="badge">Aves</span>
+                    <h3>Observación de aves</h3>
+                    <p>El jardín es un corredor y sitio de descanso para aves, incluidas especies migratorias.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="support-box" style="margin-top:28px">
+            <h3>Observa, no interfieras.</h3>
+            <p>El reglamento del jardín prohíbe tocar o llevarse los animales. Una buena experiencia de naturaleza también significa dejar que la fauna siga su comportamiento natural.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section experiences" id="eventos">
+    <div class="container">
+        <span class="eyebrow">Familias + eventos</span>
+        <h2 class="section-title">Un espacio para celebrar y recorrer.</h2>
+        <p class="section-intro">Esta sección reúne lo que antes aparecía separado como fiestas infantiles y “un espacio para todos”.</p>
+
+        <div class="feature-grid">
+            <article class="feature">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg" alt="Áreas verdes del jardín">
+                <div class="feature-content">
+                    <h3>Recorridos y experiencias</h3>
+                    <p>Los visitantes que llegan por primera vez pueden solicitar información sobre las actividades y conocer mejor la flora y fauna del lugar.</p>
+                    <a class="btn btn-primary" href="#contacto">Consultar actividad</a>
+                </div>
+            </article>
+
+            <article class="feature">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg" alt="Áreas del jardín">
+                <div class="feature-content">
+                    <h3>Celebraciones y reuniones</h3>
+                    <p>El jardín dispone de espacios para fiestas infantiles y un salón de usos múltiples. También se reportan posibilidades para celebraciones y reuniones.</p>
+                    <a class="btn btn-primary" href="#contacto">Solicitar información</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section education" id="educacion">
+    <div class="container">
+        <span class="eyebrow">Educación + investigación</span>
+        <h2 class="section-title">Aprender aquí significa salir a observar.</h2>
+        <p class="section-intro">La propuesta une las visitas educativas con la investigación científica para mostrar que el jardín no es solamente un lugar recreativo.</p>
+
+        <div class="edu-grid">
+            <div class="edu-image">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg" alt="Plantas acuáticas y sendero">
+            </div>
+
+            <div class="edu-list">
+                <div class="edu-item">
+                    <div class="edu-icon">🎓</div>
+                    <div>
+                        <h3>Visitas escolares</h3>
+                        <p>El sitio oficial contempla una contribución especial de US$1.25 por persona para excursiones de centros escolares, desde parvularia hasta bachillerato, con reserva previa.</p>
+                    </div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-icon">🧭</div>
+                    <div>
+                        <h3>Recorridos guiados</h3>
+                        <p>Los recorridos permiten explicar las actividades del jardín y acercar a los visitantes al conocimiento de su flora y fauna.</p>
+                    </div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-icon">📚</div>
+                    <div>
+                        <h3>Biblioteca y herbario</h3>
+                        <p>El jardín cuenta con una biblioteca especializada y un herbario con especímenes registrados, como parte de su infraestructura científica.</p>
+                    </div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-icon">🔬</div>
+                    <div>
+                        <h3>Investigación botánica</h3>
+                        <p>Una investigación sobre las cactáceas del jardín documentó especies presentes en la colección “Plantas del desierto”, incluyendo Acanthocereus tetragonus, Hylocereus undatus y Opuntia ficus-indica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="research">
+            <div>
+                <h3>La investigación también forma parte del recorrido.</h3>
+                <p>El jardín mantiene trabajo de investigación de biodiversidad vegetal y dispone de colecciones científicas. Esta página puede convertirse en una biblioteca digital de artículos, especies, fotografías y proyectos.</p>
+                <a class="btn" href="https://www.inaturalist.org/projects/biodiversidad-del-jardin-botanico-el-salvador/journal/71703-investigacion-las-cactaceas-del-jardin-botanico-pankia-36-1-enero-junio-2017" target="_blank" rel="noopener">Ver investigación de cactáceas ↗</a>
+            </div>
+            <div style="font-size:4rem">🌵</div>
+        </div>
+    </div>
+</section>
+
+<section class="section visit" id="visita">
+    <div class="container">
+        <div class="center">
+            <span class="eyebrow">Planifica tu visita</span>
+            <h2 class="section-title">Todo lo que necesitas antes de venir.</h2>
+            <p class="section-intro">Esta información queda visible y fácil de encontrar, en lugar de esconderla dentro de varias páginas.</p>
+        </div>
+
+        <div class="visit-grid">
+            <article class="visit-card">
+                <div class="big-icon">🕘</div>
+                <h3>Horario</h3>
+                <p><strong>Parque:</strong> martes a domingo, 9:00 a. m. – 5:30 p. m.</p>
+                <p><strong>Vivero:</strong> lunes a domingo, 8:00 a. m. – 6:00 p. m.</p>
+            </article>
+
+            <article class="visit-card">
+                <div class="big-icon">🎟️</div>
+                <h3>Contribución de ingreso</h3>
+                <p>Adultos: <strong>$2.00</strong></p>
+                <p>Niños de 2 a 12 años: <strong>$1.50</strong></p>
+                <p>Visitas escolares: contribución especial de <strong>$1.25</strong> por persona, con reserva.</p>
+            </article>
+
+            <article class="visit-card">
+                <div class="big-icon">📍</div>
+                <h3>Cómo llegar</h3>
+                <p>Plan de La Laguna, Antiguo Cuscatlán, La Libertad, El Salvador.</p>
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Jardin+Botanico+La+Laguna+El+Salvador" target="_blank" rel="noopener">Abrir en Google Maps →</a>
+            </article>
+        </div>
+
+        <div class="rules">
+            <div class="rule-box">
+                <h3>✓ Puedes llevar</h3>
+                <ul>
+                    <li>Alimentos ya preparados.</li>
+                    <li>Bebidas sin alcohol.</li>
+                    <li>Tu curiosidad y ganas de aprender.</li>
+                </ul>
+            </div>
+            <div class="rule-box">
+                <h3>✕ Ayúdanos a proteger el jardín</h3>
+                <ul>
+                    <li>No se permiten mascotas, bicicletas, pelotas, armas ni instrumentos musicales.</li>
+                    <li>No fumar.</li>
+                    <li>No tocar ni llevarse animales.</li>
+                    <li>No cortar flores, frutos, semillas, hojas, tallos ni partes de las plantas.</li>
+                    <li>No escribir sobre árboles, hojas, bancas, rótulos, pasamanos o baños.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section about" id="nosotros">
+    <div class="container">
+        <div class="center">
+            <span class="eyebrow">Nosotros</span>
+            <h2 class="section-title">Una historia que creció alrededor de la naturaleza.</h2>
+            <p class="section-intro">La historia se presenta como una línea de tiempo para que el visitante pueda entender cómo un antiguo cráter terminó convertido en un jardín botánico abierto al público.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="event"><div class="year">+2,200 años</div><p>El área se relaciona con un antiguo cráter volcánico que posteriormente formó una laguna.</p></div>
+            <div class="event"><div class="year">1873</div><p>El terremoto de San José provocó una fuerte disminución del nivel de la laguna.</p></div>
+            <div class="event"><div class="year">1976</div><p>Se constituyó legalmente la Asociación Jardín Botánico La Laguna.</p></div>
+            <div class="event"><div class="year">1978</div><p>El Jardín Botánico abrió sus puertas al público el 22 de diciembre.</p></div>
+        </div>
+
+        <div class="facts">
+            <div class="fact"><strong>60 mz</strong><span>Extensión total</span></div>
+            <div class="fact"><strong>32</strong><span>Zonas botánicas</span></div>
+            <div class="fact"><strong>3,500+</strong><span>Especies de plantas</span></div>
+            <div class="fact"><strong>23 °C</strong><span>Temperatura promedio</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact" id="contacto">
+    <div class="container">
+        <div class="center">
+            <span class="eyebrow">Contacto</span>
+            <h2 class="section-title">¿Quieres organizar una visita?</h2>
+            <p class="section-intro">La página de contacto debe servir para resolver dudas, solicitar información sobre eventos y coordinar visitas escolares.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <h3>Hablemos</h3>
+                <div class="contact-row"><strong>📞 Teléfonos</strong><span>(503) 2243-2012 · (503) 2243-2013</span></div>
+                <div class="contact-row"><strong>✉️ Correo</strong><span>jardinbotanico@jardinbotanico.org.sv</span></div>
+                <div class="contact-row"><strong>🌱 Vivero</strong><span>(503) 2243-8125</span></div>
+                <div class="contact-row"><strong>🎓 Visitas escolares</strong><span>Reserva por correo, Facebook o teléfono.</span></div>
+            </div>
+
+            <form class="form-card" id="contactForm">
+                <div class="form-grid">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <input type="text" placeholder="Motivo de contacto">
+                    <textarea placeholder="Cuéntanos qué necesitas..." required></textarea>
+                </div>
+                <button class="btn" type="submit">Enviar mensaje</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-grid">
+        <p><strong>Jardín Botánico La Laguna</strong><br>Conecta con la naturaleza, aprende y ayuda a conservarla.</p>
+        <p>Propuesta de rediseño web · 2026</p>
+    </div>
+</footer>
+
+<div class="modal" id="speciesModal" aria-hidden="true">
+    <div class="modal-box">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+        <img class="modal-img" id="modalImg" src="" alt="">
+        <div class="modal-body">
+            <span class="badge" id="modalTag"></span>
+            <h2 id="modalTitle"></h2>
+            <div class="scientific" id="modalScientific"></div>
+            <p id="modalText"></p>
+            <ul id="modalList"></ul>
+            <div class="modal-price" id="modalPrice"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const species = [
+    {
+        name:"Acanthocereus tetragonus",
+        common:"Zaite",
+        type:"cactus",
+        image:"https://www.bridgeandtunnelclub.com/bigmap/outoftown/elsalvador/sansalvador/jardinbotanicoplandelalaguna/8408-16-24.jpg",
+        description:"Cactácea documentada en la colección de plantas del desierto del Jardín Botánico.",
+        details:["Familia: Cactaceae","Colección: Plantas del desierto","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Hylocereus undatus",
+        common:"Pitahaya",
+        type:"cactus",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg",
+        description:"Cactácea incluida en el listado de especies de la colección investigada.",
+        details:["Familia: Cactaceae","Tipo: cactus trepador","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Opuntia ficus-indica",
+        common:"Higuera de la India",
+        type:"cactus",
+        image:"https://www.geographylists.com/images/sansalvador_botanical_1.jpg",
+        description:"Especie de cactus registrada en la colección de plantas del desierto.",
+        details:["Familia: Cactaceae","Nombre común: higuera de la India","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Orquídeas",
+        common:"Colección de orquídeas",
+        type:"ornamental",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg",
+        description:"Grupo ornamental destacado entre las colecciones del jardín y también presente en la oferta general del vivero.",
+        details:["Colección botánica","Interés ornamental","Precio: depende de especie y tamaño"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Plantas acuáticas",
+        common:"Colección acuática",
+        type:"acuaticas",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg",
+        description:"Plantas asociadas a los espacios acuáticos del jardín, como los estanques.",
+        details:["Zona acuática","Interés ecológico y ornamental","Precio: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Bromelias",
+        common:"Colección de bromelias",
+        type:"ornamental",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg",
+        description:"Grupo de plantas incluido entre las colecciones botánicas mencionadas por el jardín.",
+        details:["Colección botánica","Interés ornamental","Precio: consultar"],
+        price:"Precio: consultar en vivero"
+    }
+];
+
+const grid = document.getElementById("speciesGrid");
+const search = document.getElementById("speciesSearch");
+const filters = document.querySelectorAll(".filter");
+let currentFilter = "all";
+
+function renderSpecies(){
+    const term = search.value.toLowerCase().trim();
+    const filtered = species.filter(s =>
+        (currentFilter === "all" || s.type === currentFilter) &&
+        (s.name.toLowerCase().includes(term) || s.common.toLowerCase().includes(term))
+    );
+
+    grid.innerHTML = filtered.map((s,i)=>`
+        <article class="species-card">
+            <img src="${s.image}" alt="${s.name}">
+            <div class="species-info">
+                <span class="badge">${s.type === "cactus" ? "Cactácea" : s.type === "acuaticas" ? "Acuática" : "Ornamental"}</span>
+                <h3>${s.common}</h3>
+                <div class="scientific">${s.name}</div>
+                <p>${s.description}</p>
+                <div class="price">
+                    <strong>${s.price}</strong>
+                    <button class="filter" onclick="openSpecies(${species.indexOf(s)})">Ver ficha</button>
+                </div>
+            </div>
+        </article>
+    `).join("") || "<p>No encontramos especies con esa búsqueda.</p>";
+}
+
+filters.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        filters.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderSpecies();
+    });
+});
+
+search.addEventListener("input",renderSpecies);
+
+const modal = document.getElementById("speciesModal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalTag = document.getElementById("modalTag");
+const modalScientific = document.getElementById("modalScientific");
+const modalText = document.getElementById("modalText");
+const modalList = document.getElementById("modalList");
+const modalPrice = document.getElementById("modalPrice");
+
+window.openSpecies = function(index){
+    const s = species[index];
+    modalImg.src = s.image;
+    modalImg.alt = s.name;
+    modalTitle.textContent = s.common;
+    modalTag.textContent = s.type === "cactus" ? "Cactácea" : s.type === "acuaticas" ? "Acuática" : "Ornamental";
+    modalScientific.textContent = s.name;
+    modalText.textContent = s.description;
+    modalList.innerHTML = s.details.map(x=>`<li>${x}</li>`).join("");
+    modalPrice.textContent = s.price;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden","false");
+};
+
+function closeModal(){
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+}
+document.getElementById("modalClose").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+
+renderSpecies();
+
+/* Hero slider */
+const slides = document.querySelectorAll(".hero-slide");
+const controls = document.getElementById("sliderControls");
+let currentSlide = 0;
+
+slides.forEach((_,i)=>{
+    const dot = document.createElement("button");
+    dot.className = "slider-dot" + (i===0 ? " active" : "");
+    dot.setAttribute("aria-label","Mostrar imagen " + (i+1));
+    dot.addEventListener("click",()=>showSlide(i));
+    controls.appendChild(dot);
+});
+
+function showSlide(index){
+    slides.forEach(s=>s.classList.remove("active"));
+    document.querySelectorAll(".slider-dot").forEach(d=>d.classList.remove("active"));
+    slides[index].classList.add("active");
+    document.querySelectorAll(".slider-dot")[index].classList.add("active");
+    currentSlide = index;
+}
+setInterval(()=>showSlide((currentSlide+1)%slides.length),5500);
+
+/* Mobile menu */
+document.getElementById("menuBtn").addEventListener("click",()=>{
+    document.getElementById("navLinks").classList.toggle("open");
+});
+document.querySelectorAll("#navLinks a").forEach(a=>{
+    a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("open"));
+});
+
+/* Demo form */
+document.getElementById("contactForm").addEventListener("submit",e=>{
+    e.preventDefault();
+    alert("Este formulario es una demostración. Para producción debe conectarse al correo o backend del jardín.");
+    e.target.reset();
+});
+</script>
+</body>
+</html>
