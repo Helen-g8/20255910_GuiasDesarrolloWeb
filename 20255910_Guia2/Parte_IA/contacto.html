@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contacta al Jardín Botánico La Laguna: horarios, tarifas, cómo llegar y formulario de contacto.">
+<title>Contacto | Jardín Botánico La Laguna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="nav-wrap">
+    <div class="nav">
+        <a class="nav-brand" href="index.html">
+            <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo Jardín Botánico La Laguna">
+            <span>Jardín Botánico<span class="nav-tag" style="margin-left:8px">La Laguna</span></span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="explora.html">Explora</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+                <li><a href="contacto.html" class="nav-cta">Planifica tu visita</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- SUBHERO -->
+<section class="subhero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:2">
+        <span class="eyebrow">Contacto</span>
+        <h1 class="h-display" style="font-size:clamp(2.2rem,5vw,3.4rem)">¿Quieres organizar una visita?</h1>
+        <p class="lead" style="color:var(--pale-fern)">Aquí tienes la información completa antes de venir, y un formulario para resolver dudas o coordinar tu visita.</p>
+    </div>
+</section>
+
+<main>
+
+<!-- INFORMACIÓN COMPLETA DE VISITA -->
+<section class="section section-light" id="visita">
+    <div class="container">
+        <span class="eyebrow">Planifica tu visita</span>
+        <h2 class="h-display">Todo lo que necesitas antes de venir</h2>
+        <p class="lead">Horarios, tarifas y cómo llegar, en un solo lugar.</p>
+
+        <div class="visit-grid">
+            <article class="visit-card fade-up">
+                <div class="big-icon">🕘</div>
+                <h3>Horario</h3>
+                <p><strong>Parque:</strong> martes a domingo, 9:00 a. m. – 5:30 p. m.</p>
+                <p><strong>Vivero:</strong> lunes a domingo, 8:00 a. m. – 6:00 p. m.</p>
+            </article>
+
+            <article class="visit-card fade-up">
+                <div class="big-icon">🎟️</div>
+                <h3>Contribución de ingreso</h3>
+                <p>Adultos: <strong>$2.00</strong></p>
+                <p>Niños de 2 a 12 años: <strong>$1.50</strong></p>
+                <p>Visitas escolares: <strong>$1.25</strong> por persona, con reserva.</p>
+            </article>
+
+            <article class="visit-card fade-up">
+                <div class="big-icon">📍</div>
+                <h3>Cómo llegar</h3>
+                <p>Plan de La Laguna, Antiguo Cuscatlán, La Libertad, El Salvador.</p>
+                <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Jardin+Botanico+La+Laguna+El+Salvador" target="_blank" rel="noopener">Abrir en Google Maps →</a>
+            </article>
+        </div>
+
+        <div class="rules">
+            <div class="rule-box fade-up">
+                <h3>✓ Puedes llevar</h3>
+                <ul>
+                    <li>Alimentos ya preparados.</li>
+                    <li>Bebidas sin alcohol.</li>
+                    <li>Tu curiosidad y ganas de aprender.</li>
+                </ul>
+            </div>
+            <div class="rule-box fade-up">
+                <h3>✕ Ayúdanos a proteger el jardín</h3>
+                <ul>
+                    <li>No se permiten mascotas, bicicletas, pelotas, armas ni instrumentos musicales.</li>
+                    <li>No fumar.</li>
+                    <li>No tocar ni llevarse animales.</li>
+                    <li>No cortar flores, frutos, semillas, hojas ni tallos.</li>
+                    <li>No escribir sobre árboles, bancas, rótulos ni pasamanos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="section section-bone" id="formulario">
+    <div class="container">
+        <div class="center fade-up">
+            <span class="eyebrow">Hablemos</span>
+            <h2 class="h-display">Escríbenos y coordinemos tu visita</h2>
+            <p class="lead">Resuelve dudas, solicita información sobre eventos o coordina una visita escolar.</p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-card fade-up">
+                <h3>Hablemos</h3>
+                <div class="contact-row"><strong>📞 Teléfonos</strong><span>(503) 2243-2012 · (503) 2243-2013</span></div>
+                <div class="contact-row"><strong>✉️ Correo</strong><span>jardinbotanico@jardinbotanico.org.sv</span></div>
+                <div class="contact-row"><strong>🌱 Vivero</strong><span>(503) 2243-8125</span></div>
+                <div class="contact-row"><strong>🎓 Visitas escolares</strong><span>Reserva por correo, Facebook o teléfono.</span></div>
+            </div>
+
+            <form class="form-card fade-up" id="contactForm">
+                <div class="form-grid">
+                    <input type="text" placeholder="Nombre" required>
+                    <input type="email" placeholder="Correo electrónico" required>
+                    <input type="tel" placeholder="Teléfono">
+                    <select id="reason" required>
+                        <option value="" disabled selected>Motivo de contacto</option>
+                        <option value="consulta">Consulta general</option>
+                        <option value="escolar">Visita escolar</option>
+                        <option value="evento">Evento o celebración</option>
+                        <option value="vivero">Vivero</option>
+                        <option value="recorrido">Recorrido guiado</option>
+                        <option value="investigacion">Investigación</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <textarea placeholder="Cuéntanos qué necesitas..." required></textarea>
+                </div>
+                <button class="btn btn-sprout" type="submit">Enviar mensaje</button>
+                <p class="form-note">Al enviar este formulario aceptas que te contactemos por correo o teléfono para dar seguimiento a tu solicitud.</p>
+            </form>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <div class="footer-brand">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo">
+                <span>Jardín Botánico La Laguna</span>
+            </div>
+            <p>Conecta con la naturaleza, aprende y ayuda a conservarla. Plan de La Laguna, Antiguo Cuscatlán, El Salvador.</p>
+        </div>
+        <div>
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="explora.html">Explora</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:+50322432012">(503) 2243-2012</a></li>
+                <li><a href="mailto:jardinbotanico@jardinbotanico.org.sv">jardinbotanico@jardinbotanico.org.sv</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 Jardín Botánico La Laguna</span>
+        <span>Propuesta de rediseño web</span>
+    </div>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Este formulario es una demostración. Para producción debe conectarse al correo o backend del jardín.");
+    e.target.reset();
+});
+</script>
+<script src="common.js"></script>
+</body>
+</html>

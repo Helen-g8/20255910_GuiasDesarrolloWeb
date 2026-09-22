@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explora la flora, fauna, actividades e investigación del Jardín Botánico La Laguna.">
+<title>Explora | Jardín Botánico La Laguna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="nav-wrap">
+    <div class="nav">
+        <a class="nav-brand" href="index.html">
+            <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo Jardín Botánico La Laguna">
+            <span>Jardín Botánico<span class="nav-tag" style="margin-left:8px">La Laguna</span></span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="explora.html" class="active">Explora</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="contacto.html" class="nav-cta">Planifica tu visita</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- SUBHERO -->
+<section class="subhero">
+    <div class="hero-orb" aria-hidden="true"></div>
+    <div class="container" style="position:relative;z-index:2">
+        <span class="eyebrow">Explora</span>
+        <h1 class="h-display" style="font-size:clamp(2.2rem,5vw,3.4rem)">Todo lo que puedes descubrir aquí.</h1>
+        <p class="lead" style="color:var(--pale-fern)">Flora y vivero, fauna, actividades e investigación: usa los atajos para saltar directo a lo que buscas.</p>
+        <div class="subhero-nav">
+            <a class="pill-link" href="#flora">🌵 Flora + vivero</a>
+            <a class="pill-link" href="#fauna">🐦 Fauna</a>
+            <a class="pill-link" href="#actividades">🎉 Actividades</a>
+            <a class="pill-link" href="#investigacion">🔬 Investigación</a>
+            <a class="pill-link" href="#historia">📜 Nuestra historia</a>
+        </div>
+    </div>
+</section>
+
+<main>
+
+<!-- FLORA + VIVERO -->
+<section class="section section-light" id="flora">
+    <div class="container">
+        <span class="eyebrow">Flora + vivero</span>
+        <h2 class="h-display">Una guía para comenzar a explorar</h2>
+        <p class="lead">Busca, filtra y abre la ficha de cada especie. Los precios del vivero se muestran como “consultar” hasta contar con una lista oficial y actualizada.</p>
+
+        <div class="catalog-toolbar">
+            <input class="search" id="speciesSearch" type="search" placeholder="Buscar planta por nombre...">
+            <div class="filters">
+                <button class="filter active" data-filter="all">Todas</button>
+                <button class="filter" data-filter="cactus">Cactáceas</button>
+                <button class="filter" data-filter="ornamental">Ornamentales</button>
+                <button class="filter" data-filter="acuaticas">Acuáticas</button>
+            </div>
+        </div>
+
+        <div class="catalog-grid" id="speciesGrid"></div>
+
+        <div class="catalog-note">
+            <strong>Sobre los precios:</strong> el vivero ofrece plantas ornamentales, flores de estación, frutales, sustratos, macetas y fertilizantes, pero no publica una lista de precios vigente. El precio queda preparado para conectarse con el inventario real del vivero.
+        </div>
+    </div>
+</section>
+
+<!-- FAUNA -->
+<section class="section section-bone" id="fauna">
+    <div class="container">
+        <span class="eyebrow">Fauna</span>
+        <h2 class="h-display">No solo vienes a ver plantas</h2>
+        <p class="lead">El jardín también funciona como hábitat y refugio para diferentes especies.</p>
+
+        <div class="catalog-grid" style="margin-top:var(--sp-40)">
+            <article class="species-card fade-up">
+                <img src="https://www.noticiaslagaceta.com/wp-content/uploads/2023/11/jardin-botanico-la-laguna.jpg" alt="Estanque con peces">
+                <div class="species-info">
+                    <span class="badge">Fauna acuática</span>
+                    <h3>Peces</h3>
+                    <p>Los estanques del jardín albergan diferentes especies de peces visibles durante el recorrido.</p>
+                </div>
+            </article>
+            <article class="species-card fade-up">
+                <img src="https://www.noticiaslagaceta.com/wp-content/uploads/2023/11/jardin-botanico-la-laguna.jpg" alt="Tortugas en el estanque">
+                <div class="species-info">
+                    <span class="badge">Fauna acuática</span>
+                    <h3>Tortugas</h3>
+                    <p>Conviven en los espejos de agua del jardín como parte del recorrido acuático.</p>
+                </div>
+            </article>
+            <article class="species-card fade-up">
+                <img src="https://www.bridgeandtunnelclub.com/bigmap/outoftown/elsalvador/sansalvador/jardinbotanicoplandelalaguna/8408-16-24.jpg" alt="Iguanas en el jardín">
+                <div class="species-info">
+                    <span class="badge">Reptiles</span>
+                    <h3>Iguanas</h3>
+                    <p>Una de las especies que los visitantes pueden encontrar con más frecuencia en los senderos.</p>
+                </div>
+            </article>
+            <article class="species-card fade-up">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg" alt="Aves de El Salvador">
+                <div class="species-info">
+                    <span class="badge">Aves</span>
+                    <h3>Aves</h3>
+                    <p>El jardín es corredor y sitio de descanso para aves, incluidas especies migratorias.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="info-box fade-up">
+            <h3>Observa, no interfieras</h3>
+            <p>El reglamento del jardín prohíbe tocar o llevarse animales. Mantén distancia, evita ruidos fuertes y deja que la fauna siga su comportamiento natural: así se logra una buena observación sin alterar el ecosistema.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ACTIVIDADES -->
+<section class="section section-light" id="actividades">
+    <div class="container">
+        <span class="eyebrow">Explora + actividades</span>
+        <h2 class="h-display">Un espacio para recorrer y celebrar</h2>
+        <p class="lead">Desde una visita guiada hasta una celebración familiar, estas son las experiencias disponibles.</p>
+
+        <div class="icon-grid">
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🧭</div>
+                <h3>Recorridos</h3>
+                <p>Visitas guiadas por los senderos principales para conocer flora, fauna y colecciones botánicas.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🎂</div>
+                <h3>Celebraciones</h3>
+                <p>Espacios disponibles para fiestas infantiles y celebraciones al aire libre.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🤝</div>
+                <h3>Reuniones</h3>
+                <p>Salón de usos múltiples disponible para reuniones y seminarios pequeños.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🎪</div>
+                <h3>Eventos</h3>
+                <p>El jardín recibe eventos especiales durante el año; consulta fechas disponibles.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">👨‍👩‍👧‍👦</div>
+                <h3>Actividades familiares</h3>
+                <p>Áreas recreativas pensadas para que toda la familia disfrute el recorrido.</p>
+            </div>
+        </div>
+
+        <div class="research-box fade-up">
+            <div>
+                <h3>¿Quieres reservar alguna actividad?</h3>
+                <p>Escríbenos y cuéntanos la fecha, el número de personas y el tipo de actividad que buscas.</p>
+                <a class="btn btn-sprout" href="contacto.html" style="margin-top:14px">Solicitar información →</a>
+            </div>
+            <div style="font-size:3.4rem">🌿</div>
+        </div>
+    </div>
+</section>
+
+<!-- INVESTIGACIÓN -->
+<section class="section section-bone" id="investigacion">
+    <div class="container">
+        <span class="eyebrow">Investigación</span>
+        <h2 class="h-display">Aprender aquí significa salir a observar</h2>
+        <p class="lead">Educación e investigación científica se unen para mostrar que el jardín no es solo un espacio recreativo.</p>
+
+        <div class="icon-grid">
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🎓</div>
+                <h3>Visitas escolares</h3>
+                <p>Contribución especial de US$1.25 por persona para excursiones de centros escolares, con reserva previa.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🧭</div>
+                <h3>Recorridos guiados</h3>
+                <p>Explican las actividades del jardín y acercan a los visitantes al conocimiento de su flora y fauna.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">📚</div>
+                <h3>Biblioteca</h3>
+                <p>Biblioteca especializada disponible como parte de la infraestructura científica del jardín.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🌿</div>
+                <h3>Herbario</h3>
+                <p>Herbario con especímenes registrados, base para estudios de la biodiversidad vegetal local.</p>
+            </div>
+            <div class="icon-item fade-up">
+                <div class="icon-circle">🔬</div>
+                <h3>Investigación botánica</h3>
+                <p>Estudios como el de las cactáceas del jardín documentan especies de la colección “Plantas del desierto”.</p>
+            </div>
+        </div>
+
+        <div class="research-box fade-up">
+            <div>
+                <h3>La investigación también forma parte del recorrido</h3>
+                <p>El jardín mantiene trabajo de investigación de biodiversidad vegetal y colecciones científicas activas.</p>
+                <a class="btn btn-ghost-light" style="border-color:var(--electric-sprout);margin-top:14px" href="https://www.inaturalist.org/projects/biodiversidad-del-jardin-botanico-el-salvador/journal/71703-investigacion-las-cactaceas-del-jardin-botanico-pankia-36-1-enero-junio-2017" target="_blank" rel="noopener">Ver investigación de cactáceas ↗</a>
+            </div>
+            <div style="font-size:3.4rem">🌵</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONOCE NUESTRA HISTORIA -->
+<section class="section section-light" id="historia">
+    <div class="container">
+        <div class="center fade-up">
+            <span class="eyebrow">Conoce nuestra historia</span>
+            <h2 class="h-display">De un antiguo cráter a un jardín abierto al público</h2>
+            <p class="lead">Una línea de tiempo para entender cómo este espacio llegó a ser lo que es hoy.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="event fade-up"><div class="year">+2,200 años</div><p>El área se relaciona con un antiguo cráter volcánico que posteriormente formó una laguna.</p></div>
+            <div class="event fade-up"><div class="year">1873</div><p>El terremoto de San José provocó una fuerte disminución del nivel de la laguna.</p></div>
+            <div class="event fade-up"><div class="year">1976</div><p>Se constituyó legalmente la Asociación Jardín Botánico La Laguna.</p></div>
+            <div class="event fade-up"><div class="year">1978</div><p>El Jardín Botánico abrió sus puertas al público el 22 de diciembre.</p></div>
+        </div>
+
+        <div class="facts">
+            <div class="fact fade-up"><strong>60 mz</strong><span>Extensión total</span></div>
+            <div class="fact fade-up"><strong>32</strong><span>Zonas botánicas</span></div>
+            <div class="fact fade-up"><strong>3,500+</strong><span>Especies de plantas</span></div>
+            <div class="fact fade-up"><strong>23 °C</strong><span>Temperatura promedio</span></div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-grid">
+        <div>
+            <div class="footer-brand">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo">
+                <span>Jardín Botánico La Laguna</span>
+            </div>
+            <p>Conecta con la naturaleza, aprende y ayuda a conservarla. Plan de La Laguna, Antiguo Cuscatlán, El Salvador.</p>
+        </div>
+        <div>
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="explora.html">Explora</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:+50322432012">(503) 2243-2012</a></li>
+                <li><a href="mailto:jardinbotanico@jardinbotanico.org.sv">jardinbotanico@jardinbotanico.org.sv</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 Jardín Botánico La Laguna</span>
+        <span>Propuesta de rediseño web</span>
+    </div>
+</footer>
+
+<div class="modal" id="speciesModal" aria-hidden="true">
+    <div class="modal-box">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">×</button>
+        <img class="modal-img" id="modalImg" src="" alt="">
+        <div class="modal-body">
+            <span class="badge" id="modalTag"></span>
+            <h2 id="modalTitle"></h2>
+            <div class="scientific" id="modalScientific"></div>
+            <p id="modalText"></p>
+            <ul id="modalList"></ul>
+            <div class="modal-price" id="modalPrice"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+const species = [
+    {
+        name:"Acanthocereus tetragonus", common:"Zaite", type:"cactus",
+        image:"https://www.bridgeandtunnelclub.com/bigmap/outoftown/elsalvador/sansalvador/jardinbotanicoplandelalaguna/8408-16-24.jpg",
+        description:"Cactácea documentada en la colección de plantas del desierto del Jardín Botánico.",
+        details:["Familia: Cactaceae","Colección: Plantas del desierto","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Hylocereus undatus", common:"Pitahaya", type:"cactus",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg",
+        description:"Cactácea incluida en el listado de especies de la colección investigada.",
+        details:["Familia: Cactaceae","Tipo: cactus trepador","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Opuntia ficus-indica", common:"Higuera de la India", type:"cactus",
+        image:"https://www.geographylists.com/images/sansalvador_botanical_1.jpg",
+        description:"Especie de cactus registrada en la colección de plantas del desierto.",
+        details:["Familia: Cactaceae","Nombre común: higuera de la India","Precio de vivero: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Orquídeas", common:"Colección de orquídeas", type:"ornamental",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg",
+        description:"Grupo ornamental destacado entre las colecciones del jardín y en la oferta general del vivero.",
+        details:["Colección botánica","Interés ornamental","Precio: depende de especie y tamaño"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Plantas acuáticas", common:"Colección acuática", type:"acuaticas",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg",
+        description:"Plantas asociadas a los espacios acuáticos del jardín, como los estanques.",
+        details:["Zona acuática","Interés ecológico y ornamental","Precio: consultar"],
+        price:"Precio: consultar en vivero"
+    },
+    {
+        name:"Bromelias", common:"Colección de bromelias", type:"ornamental",
+        image:"https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg",
+        description:"Grupo de plantas incluido entre las colecciones botánicas del jardín.",
+        details:["Colección botánica","Interés ornamental","Precio: consultar"],
+        price:"Precio: consultar en vivero"
+    }
+];
+
+const grid = document.getElementById("speciesGrid");
+const search = document.getElementById("speciesSearch");
+const filters = document.querySelectorAll(".filter");
+let currentFilter = "all";
+
+function tagLabel(type){
+    return type === "cactus" ? "Cactácea" : type === "acuaticas" ? "Acuática" : "Ornamental";
+}
+
+function renderSpecies(){
+    const term = search.value.toLowerCase().trim();
+    const filtered = species.filter(s =>
+        (currentFilter === "all" || s.type === currentFilter) &&
+        (s.name.toLowerCase().includes(term) || s.common.toLowerCase().includes(term))
+    );
+
+    grid.innerHTML = filtered.map(s => `
+        <article class="species-card fade-up in-view">
+            <img src="${s.image}" alt="${s.name}">
+            <div class="species-info">
+                <span class="badge">${tagLabel(s.type)}</span>
+                <h3>${s.common}</h3>
+                <div class="scientific">${s.name}</div>
+                <p>${s.description}</p>
+                <div class="price">
+                    <strong>${s.price}</strong>
+                    <button class="filter" onclick="openSpecies(${species.indexOf(s)})">Ver ficha</button>
+                </div>
+            </div>
+        </article>
+    `).join("") || "<p class='empty-state'>No encontramos especies con esa búsqueda.</p>";
+}
+
+filters.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+        filters.forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.dataset.filter;
+        renderSpecies();
+    });
+});
+search.addEventListener("input", renderSpecies);
+
+const modal = document.getElementById("speciesModal");
+const modalImg = document.getElementById("modalImg");
+const modalTitle = document.getElementById("modalTitle");
+const modalTag = document.getElementById("modalTag");
+const modalScientific = document.getElementById("modalScientific");
+const modalText = document.getElementById("modalText");
+const modalList = document.getElementById("modalList");
+const modalPrice = document.getElementById("modalPrice");
+
+window.openSpecies = function(index){
+    const s = species[index];
+    modalImg.src = s.image;
+    modalImg.alt = s.name;
+    modalTitle.textContent = s.common;
+    modalTag.textContent = tagLabel(s.type);
+    modalScientific.textContent = s.name;
+    modalText.textContent = s.description;
+    modalList.innerHTML = s.details.map(x=>`<li>${x}</li>`).join("");
+    modalPrice.textContent = s.price;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden","false");
+};
+function closeModal(){
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden","true");
+}
+document.getElementById("modalClose").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+renderSpecies();
+</script>
+<script src="common.js"></script>
+</body>
+</html>
