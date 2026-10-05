@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jardín Botánico La Laguna — conecta con la naturaleza en Antiguo Cuscatlán, El Salvador.">
+<title>Jardín Botánico La Laguna | Conecta con la naturaleza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- 1) Identidad visual compartida con Explora y Contacto -->
+<link rel="stylesheet" href="../../20255910_Guia2/Parte_IA/styles.css">
+<!-- 2) Distribución con CSS Grid exclusiva del inicio (va después) -->
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>  
+
+<div class="nav-wrap">
+    <div class="nav">
+        <a class="nav-brand" href="index.html">
+            <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo Jardín Botánico La Laguna">
+            <span>Jardín Botánico<span class="nav-tag" style="margin-left:8px">La Laguna</span></span>
+        </a>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="../../20255910_Guia2/Parte_IA/explora.html">Explora</a></li>
+                <li><a href="../../20255910_Guia2/Parte_IA/contacto.html">Contacto</a></li>
+                <li><a href="../../20255910_Guia2/Parte_IA/contacto.html" class="nav-cta">Planifica tu visita</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<main class="page-grid-layout">
+
+    <!-- HERO -->
+    <header class="hero" id="inicio">
+        <div class="hero-slide active"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-orb" aria-hidden="true"></div>
+
+        <div class="container hero-content">
+            <span class="hero-kicker">Un refugio verde en El Salvador</span>
+            <h1>Conecta con la <span class="accent">naturaleza</span>.</h1>
+            <p>Recorre senderos, descubre especies, conoce nuestra fauna y vive una experiencia de aprendizaje y conservación en el Jardín Botánico La Laguna.</p>
+            <div class="hero-actions">
+                <a class="btn btn-sprout" href="../../20255910_Guia2/Parte_IA/explora.html">Explorar el jardín →</a>
+                <a class="btn btn-ghost-light" href="../../20255910_Guia2/Parte_IA/contacto.html">Planifica tu visita</a>
+            </div>
+        </div>
+
+        <div class="slider-controls" id="sliderControls"></div>
+    </header>
+
+    <!-- INFO RÁPIDA -->
+    <section class="container quick-info">
+        <div class="quick-card">
+            <div class="quick-item"><span class="quick-icon">🕘</span><div><strong>Martes a domingo</strong><span>9:00 a. m. – 5:30 p. m.</span></div></div>
+            <div class="quick-item"><span class="quick-icon">🎟️</span><div><strong>Entrada</strong><span>Adultos $2.00 · Niños $1.50</span></div></div>
+            <div class="quick-item"><span class="quick-icon">🌱</span><div><strong>Vivero</strong><span>Todos los días · 8:00 a. m. – 6:00 p. m.</span></div></div>
+            <div class="quick-item"><span class="quick-icon">📍</span><div><strong>Plan de La Laguna</strong><span>Antiguo Cuscatlán, La Libertad</span></div></div>
+            <div class="quick-more">
+                <a class="text-link" href="../../20255910_Guia2/Parte_IA/contacto.html#visita">Ver información completa →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUÉ VISITARNOS -->
+    <section class="section section-light story-section">
+        <div class="container story-grid">
+            <div class="story-image fade-up">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg" alt="Estanque con plantas acuáticas del Jardín Botánico">
+            </div>
+            <div class="story-copy fade-up">
+                <span class="eyebrow">Conservación</span>
+                <h2 class="h-display">¿Por qué visitarnos?</h2>
+                <p>El Jardín Botánico La Laguna es una asociación privada, apolítica y sin fines de lucro que se sostiene gracias a cada visita, compra en el vivero y curso que tomas aquí. No recibe subsidios ni donativos externos: tu entrada es parte directa de su conservación.</p>
+                <a class="btn btn-outline-dark" href="../../20255910_Guia2/Parte_IA/explora.html#historia">Conoce nuestra historia →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TARJETAS HACIA EXPLORA -->
+    <section class="section section-bone explore-section">
+        <div class="container explore-layout">
+            <div class="center fade-up explore-head">
+                <span class="eyebrow">Descubre el jardín</span>
+                <h2 class="h-display">Todo lo que puedes explorar</h2>
+                <p class="lead">Cada tarjeta te lleva directo a esa sección dentro de Explora, con fichas, filtros y actividades concretas.</p>
+            </div>
+
+            <div class="reveal-grid">
+                <a class="reveal-card card-flora fade-up" href="explora.html#flora">
+                    <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg" alt="Vivero y plantas ornamentales">
+                    <div class="reveal-body">
+                        <span class="reveal-tag">Flora + vivero</span>
+                        <h3>Conoce las plantas</h3>
+                        <p>Cactáceas, ornamentales y acuáticas con buscador, filtros y ficha por especie.</p>
+                    </div>
+                </a>
+
+                <a class="reveal-card card-fauna fade-up" href="explora.html#fauna">
+                    <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20240905_065002-1920w.jpg" alt="Fauna del jardín">
+                    <div class="reveal-body">
+                        <span class="reveal-tag">Fauna</span>
+                        <h3>Descubre quiénes habitan aquí</h3>
+                        <p>Peces, tortugas, iguanas y aves que forman parte del ecosistema del jardín.</p>
+                    </div>
+                </a>
+
+                <a class="reveal-card card-actividades fade-up" href="explora.html#actividades">
+                    <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg" alt="Área verde y senderos">
+                    <div class="reveal-body">
+                        <span class="reveal-tag">Experiencias</span>
+                        <h3>Un espacio para compartir</h3>
+                        <p>Recorridos, celebraciones, reuniones y actividades familiares.</p>
+                    </div>
+                </a>
+
+                <a class="reveal-card card-educacion fade-up" href="explora.html#investigacion">
+                    <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg" alt="Colección de plantas acuáticas">
+                    <div class="reveal-body">
+                        <span class="reveal-tag">Educación</span>
+                        <h3>Aprende con el jardín</h3>
+                        <p>Visitas escolares, biblioteca, herbario e investigación botánica.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section section-dark center cta-section">
+        <div class="container fade-up">
+            <span class="eyebrow">Planifica tu visita</span>
+            <h2 class="h-display">¿List@ para recorrer el jardín?</h2>
+            <p class="lead" style="margin:0 auto var(--sp-32)">Horarios, tarifas, cómo llegar y el formulario de contacto están a un clic de distancia.</p>
+            <a class="btn btn-sprout" href="contacto.html">Ir a contacto →</a>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-brand-col">
+            <div class="footer-brand">
+                <img src="https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/logotipo-2cc0aa1a-1920w.png" alt="Logo">
+                <span>Jardín Botánico La Laguna</span>
+            </div>
+            <p>Conecta con la naturaleza, aprende y ayuda a conservarla. Plan de La Laguna, Antiguo Cuscatlán, El Salvador.</p>
+        </div>
+        <div class="footer-nav-col">
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="explora.html">Explora</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact-col">
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="tel:+50322432012">(503) 2243-2012</a></li>
+                <li><a href="mailto:jardinbotanico@jardinbotanico.org.sv">jardinbotanico@jardinbotanico.org.sv</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container footer-bottom">
+        <span>© 2026 Jardín Botánico La Laguna</span>
+        <span>Propuesta de rediseño web</span>
+    </div>
+</footer>
+
+<script src="index.js"></script>
+</body>
+</html>

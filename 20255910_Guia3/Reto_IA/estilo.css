@@ -1,0 +1,185 @@
+/* =========================================================
+   Jardín Botánico La Laguna — Inicio · distribución con CSS Grid
+   Se carga DESPUÉS de styles.css (identidad visual compartida).
+   Flexbox queda solo para componentes (menú, botones, tarjetas).
+   ========================================================= */
+
+/* ---------- 1. ESTRUCTURA GLOBAL DE LA PÁGINA ----------
+   (la barra .nav-wrap es position:fixed, no ocupa celda) */
+body{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:1fr auto;
+    grid-template-areas:
+        "page"
+        "footer";
+    min-height:100vh;
+}
+.page-grid-layout{ grid-area:page; }
+footer{ grid-area:footer; }
+
+/* ---------- 2. FILAS DE LA PÁGINA ---------- */
+.page-grid-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+        "hero"
+        "quick"
+        "story"
+        "explore"
+        "cta";
+}
+.page-grid-layout > .hero         { grid-area:hero; }
+.page-grid-layout > .quick-info   { grid-area:quick; }
+.page-grid-layout > .story-section{ grid-area:story; }
+.page-grid-layout > .explore-section{ grid-area:explore; }
+.page-grid-layout > .cta-section  { grid-area:cta; }
+
+/* Cada sección ancha centra su contenido dentro de una celda */
+.story-section,
+.explore-section,
+.cta-section{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+}
+
+/* ---------- 3. HERO ---------- */
+.hero{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:1fr auto;
+    grid-template-areas:
+        "content"
+        "controls";
+    align-items:center;
+}
+.hero-content{
+    grid-area:content;
+    justify-self:center;
+    width:min(var(--max-w),92%);
+    max-width:none;
+    margin:0;
+}
+.slider-controls{
+    grid-area:controls;
+    position:relative;
+    right:auto;bottom:auto;
+    justify-self:end;
+    align-self:end;
+    margin:0 5% 36px 0;
+}
+.hero-slide:nth-child(1){background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20250306_082542-1920w.jpg')}
+.hero-slide:nth-child(2){background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/475742898_1038543711633825_3324456418639277227_n-1920w.jpg')}
+.hero-slide:nth-child(3){background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/20240905_065002-1920w.jpg')}
+.hero-slide:nth-child(4){background-image:url('https://irp.cdn-website.com/85c6ac66/dms3rep/multi/opt/484549961_1069937721827757_1941987167676326415_n-1920w.jpg')}
+
+/* ---------- 4. INFORMACIÓN RÁPIDA ---------- */
+.quick-info{ margin:-52px auto 0; }
+.quick-card{
+    grid-template-columns:repeat(4,1fr);
+    grid-template-areas:
+        "q1 q2 q3 q4"
+        "more more more more";
+}
+.quick-card > :nth-child(1){grid-area:q1}
+.quick-card > :nth-child(2){grid-area:q2}
+.quick-card > :nth-child(3){grid-area:q3}
+.quick-card > :nth-child(4){grid-area:q4}
+.quick-card > .quick-more{grid-area:more}
+
+@media(max-width:900px){
+    .quick-card{
+        grid-template-columns:repeat(2,1fr);
+        grid-template-areas:
+            "q1 q2"
+            "q3 q4"
+            "more more";
+    }
+}
+@media(max-width:520px){
+    .quick-card{
+        grid-template-columns:1fr;
+        grid-template-areas:"q1" "q2" "q3" "q4" "more";
+    }
+}
+
+/* ---------- 5. ¿POR QUÉ VISITARNOS? ---------- */
+.story-grid{
+    grid-template-columns:1fr 1fr;
+    grid-template-areas:"image copy";
+}
+.story-image{grid-area:image}
+.story-copy {grid-area:copy}
+@media(max-width:900px){
+    .story-grid{
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"image" "copy";
+    }
+}
+
+/* ---------- 6. EXPLORA: ENCABEZADO + TARJETAS ---------- */
+.explore-layout{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:
+        "head"
+        "cards";
+    row-gap:var(--sp-48);
+}
+.explore-head{grid-area:head}
+.reveal-grid{
+    grid-area:cards;
+    margin-top:0;
+    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
+    grid-template-areas:"flora fauna actividades educacion";
+}
+.card-flora{grid-area:flora}
+.card-fauna{grid-area:fauna}
+.card-actividades{grid-area:actividades}
+.card-educacion{grid-area:educacion}
+
+@media(max-width:980px){
+    .reveal-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-template-areas:
+            "flora fauna"
+            "actividades educacion";
+    }
+}
+@media(max-width:560px){
+    .reveal-grid{
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"flora" "fauna" "actividades" "educacion";
+    }
+}
+
+/* ---------- 7. CTA FINAL ---------- */
+.cta-section{ place-items:center; }
+
+/* ---------- 8. FOOTER ---------- */
+.footer-grid{
+    grid-template-columns:1.4fr 1fr 1fr;
+    grid-template-areas:"brand nav contact";
+}
+.footer-brand-col  {grid-area:brand}
+.footer-nav-col    {grid-area:nav}
+.footer-contact-col{grid-area:contact}
+.footer-bottom{
+    display:grid;
+    grid-template-columns:1fr auto;
+    grid-template-areas:"copy note";
+    gap:10px;
+}
+.footer-bottom > :first-child{grid-area:copy}
+.footer-bottom > :last-child {grid-area:note}
+
+@media(max-width:760px){
+    .footer-grid{
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"brand" "nav" "contact";
+    }
+    .footer-bottom{
+        grid-template-columns:minmax(0,1fr);
+        grid-template-areas:"copy" "note";
+    }
+}
