@@ -1,0 +1,460 @@
+:root {
+--color-texto: #342e29;
+--color-fondo: #f5efe6;
+--color-principal: #293e36;
+--color-acento: #93472f;
+--color-superficie: #ffffff;
+--color-contraste: #ead1ad;
+--color-borde: #ded3c4;
+--color-fondo-secundario: #eadfce;
+--color-capa-inicial: rgba(25, 35, 29, 0.85);
+--color-capa-final: rgba(25, 35, 29, 0.65);
+--color-sombra: rgba(52, 46, 41, 0.10);
+}
+
+/* paso 4 */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    background-color: var(--color-fondo);
+}
+
+/* verificación g: destinos internos no quedan bajo el encabezado */
+html {
+    scroll-padding-top: 5rem;
+}
+
+.contenedor {
+width: 90%;
+max-width: 1140px;
+margin: 0 auto;
+}
+
+img {
+max-width: 100%;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h2, h3{
+    color: var(--color-principal);
+}
+
+a{
+    color: var(--color-acento);
+}
+
+a:hover, a:focus-visible{
+    color: var(--color-principal);
+}
+
+.encabezado-principal {
+color: var(--color-superficie);
+background-color: var(--color-principal);
+}
+
+.marca {
+color: var(--color-superficie);
+font-size: 1.15rem;
+font-weight: bold;
+text-decoration: none;
+}
+
+/* evita que la marca se vuelva invisible (verde sobre verde) al hover */
+.marca:hover, .marca:focus-visible{
+    color: var(--color-contraste);
+}
+
+.barra-navegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem ;
+    padding: 1rem 0;
+}
+
+.menu{
+    margin: 0;
+    padding: 0;
+    list-style:none;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.menu a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.menu a:hover, .menu a:focus-visible{
+    color: var(--color-contraste);
+}
+
+/* paso 11 */
+.presentacion {
+    padding: 4rem 0;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+    /* paso 12 */
+    background-image:
+    linear-gradient(
+        to right,
+        var(--color-capa-inicial),
+        var(--color-capa-final)
+    ),
+        url("../images/gran-muralla-china.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* paso 13 */
+.presentacion h1 {
+    max-width: 760px;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+}
+
+.presentacion p {
+    max-width: 640px;   
+}
+
+.sobretitulo {
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-acento);
+}
+
+.presentacion .sobretitulo {
+    color: var(--color-contraste);
+}
+
+/* paso 14 */
+.boton-principal {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.3rem;
+    color: #ffffff;
+    background-color: var(--color-acento);
+    text-decoration: none;
+}
+
+.boton-principal:hover, 
+.boton-principal:focus-visible {
+    color: var(--color-principal);
+    background-color: var(--color-contraste);
+}
+
+/* paso 15 */
+.seccion-maravillas{
+    padding: 3rem 0;
+}
+
+.titulo-seccion{
+    max-width: 680px;
+    margin-bottom: 2rem;
+}
+
+.titulo-seccion h2{
+    margin: 0 0 0.75rem;
+    font-size: 2rem;
+}
+
+/* paso 16 */
+.maravillas {
+display: flex;
+flex-wrap: wrap ;
+}
+/* 
+a) ¿Cuántas filas intenta formar Flexbox?
+se forma una sola fila
+b) ¿Qué ocurre con el ancho de las tarjetas?
+el tamaño de las tarjetas se divine en ancho del contenedor
+c) ¿El contenido permanece cómodo de leer?
+no, es más difícil de leer porque todo el esta muy unido
+*/
+
+/* paso 18 */
+.maravilla {
+flex: 1 1 300px;
+}
+/* paso 17 
+
+Visualice nuevamente la página y explique qué cambió:
+cada tarjeta se puso abajo de la otra como estaba al inicio
+*/
+
+
+/* paso 19 */
+.maravillas{
+    gap: 1.5rem;
+}
+
+/*Explique la diferencia entre el espacio
+creado por gap y el relleno interior
+el grap es un espacio que se pone entre todos los 
+elementos sin afectar los bordes de los hijos*/
+
+/* paso 20 */
+/*
+Observe el crecimiento de la última tarjeta. 
+Amplíe la ventana hasta que la última fila quede
+incompleta. Observe el ancho de la última tarjeta.
+
+a) ¿Por qué crece más que las tarjetas de una fila completa?
+porque flex hace que se estire el contenido para usar
+todo el espacio disponible.
+
+b) ¿Qué valor de flex permite ese crecimiento?
+flex: 1 1 300px; especificamente flex 1 hace que se expanda
+para ocupar todo el espacio disponible.
+
+c) ¿Resulta visualmente conveniente que ocupe todo el espacio?
+No, deberia tener el mismo ancho que las demas van utilizando.
+*/
+
+
+.maravilla{
+    max-width: 360px;
+}
+
+.maravillas{
+    justify-content: center;
+}
+
+/* paso 21 */
+.maravilla{
+    background-color: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px var(--color-sombra);
+    /*recorta el contenido sobrante para que no 
+    sobresalga del contenedor*/
+   overflow: hidden;
+}
+
+/*paso 23*/
+.maravilla img {
+display: block;
+width: 100%;
+height: 220px;
+object-fit: cover;
+
+}
+
+/*
+a) ¿Mantienen su proporción?
+No, todas las imagenes tiene aproximandamente
+la misma altura, pero el alto fijo las deforma.
+
+b) ¿Qué diferencia se observa entre la fotografía 
+vertical y las horizontales?
+la vertical se ve como aplastada, y es mas dificil de enterderla.
+*/
+
+/* paso 25 */
+.maravilla-contenido{
+    padding: 1.25rem;
+}
+
+.maravilla-contenido .ubicacion{
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.maravilla-contenido h3{
+    font-size: 1.35rem;
+    margin: 0.25rem 0 0.75rem;
+}
+
+.maravilla-contenido a{
+    font-weight: bold;
+    margin-top: auto;
+    align-self: flex-start;
+
+}
+
+/*paso 26*/
+.maravilla{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.maravilla-contenido{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/*
+El espacio que se absorbe es el de arriba
+y se mantiene igual respecto al borde del 
+contenedor de abajo
+*/
+
+
+
+/*
+a) ¿En qué dirección se desplazó la tarjeta?
+se desplazo hacia abajo a la derecha
+
+b) ¿Desde qué posición se calcula el desplazamiento?
+desde la posicion original en la que estaba
+
+c) ¿Las demás tarjetas ocuparon su posición original?
+no, respetan la posicion original
+
+d) ¿La tarjeta desplazada puede superponerse con otras?
+si, se sobrepone a otras tarjetas
+*/
+
+/* paso 28 */
+/*
+a) ¿La tarjeta se desplaza hacia la derecha o hacia la izquierda?
+a la izquierda.
+
+b) ¿Por qué una coordenada situada en un lado puede producir movimiento en la dirección
+contraria?
+porque se mide desde el borde que se indica, 
+si se pone top se inicia contanto desde el borde
+de arriba los pixceles indicados y por eso 
+causa el efecto que baja aunque se ponga top.
+*/
+
+/* paso 29 */
+/*
+a) ¿Qué ocurrió con las demás tarjetas?
+las demas tarjetas se acomodaron tomando el lugar
+de la tarjeta Petra
+
+b) ¿Continúa reservado el espacio original de Petra?
+No
+
+c) ¿Respecto de qué área parecen calcularse top y left?
+al body
+*/
+
+/* paso 30 */
+/*
+.maravillas{
+    position: relative;
+}
+*/
+
+/*
+a) ¿Desde dónde se calculan ahora top y left?
+desde el contendor de maravillas
+b) ¿Por qué se modificó la referencia si el 
+contenedor no fue desplazado?
+porque absolute busca al primer padre que tenga
+position: relative y se posiciona respecto a ese.
+*/
+
+/* paso 31 */
+/*
+Compare relativo y absoluto. A partir de lo observado, responda:
+a) ¿Cuál de los dos tipos de posicionamiento conserva el espacio original del elemento?
+relative
+
+b) ¿Cuál permite que las demás cajas ocupen ese espacio?
+absolute
+
+c) ¿Cómo se determina el sistema de referencia de un elemento absoluto?
+si no hay un padre con posicionamiento se 
+posiciona respecto al documento
+*/
+
+/*paso 33*/
+.maravilla-imagen{
+    position: relative;
+}
+.continente{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1;
+    /*paso 34*/
+padding: 0.25rem 0.75rem;
+color: var(--color-superficie);
+background-color: var(--color-acento);
+border-radius: 0.3rem;
+font-size: 0.8rem;
+font-weight: bold;
+}
+
+/*paso 35*/
+.encabezado-principal{
+    position: sticky;
+    top: 0;
+    /*paso 37*/
+    z-index: 10;
+}
+/*
+a) ¿Permanece adherido el encabezado?
+no
+b) ¿Qué información falta para indicar el punto de adhesión?
+indicar el umbral a que tiene que pasar para que se comporte como fixed
+*/
+
+/*paso 38*/
+.volver-arriba {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 20;
+    /*paso 40*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    color: var(--color-superficie);
+    background-color: var(--color-acento);
+    border: 2px solid var(--color-superficie);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+/*
+a) ¿Cuál conserva su espacio original?
+el encabezado
+
+b) ¿Cuál permanece ubicado respecto de 
+la ventana desde el inicio?
+el boton
+*/
+
+.seccion-historia{
+    padding: 3rem 0;
+    background-color: var(--color-fondo-secundario);
+}
+
+.historia-contenido{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.historia-contenido > *{
+    flex: 1 1 300px;
+}
+
+/*paso 41*/
+.pie-pagina{
+    padding:  2rem 0 5rem;
+    color: var(--color-superficie);
+    background-color: var(--color-principal);
+}
