@@ -130,8 +130,9 @@ footer{ grid-area:footer; }
 .reveal-grid{
     grid-area:cards;
     margin-top:0;
-    grid-template-columns:1.3fr 1fr 1fr 1.3fr;
-    grid-template-areas:"flora fauna actividades educacion";
+    gap: 64px;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-areas:"flora flora fauna fauna" "actividades actividades educacion educacion";
 }
 .card-flora{grid-area:flora}
 .card-fauna{grid-area:fauna}
