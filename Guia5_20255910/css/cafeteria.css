@@ -1,0 +1,22 @@
+ :root {
+      --vino: #6F1D1B;
+      --dorado: #BB9457;
+      --cafe-oscuro: #432818;
+      --caramelo: #99582A;
+      --crema: #FFE6A7;
+    }
+    body { background-color: var(--crema); color: var(--cafe-oscuro); }
+    .navbar-cafe { background-color: var(--cafe-oscuro); }
+    .card { border: 0; background-color: #fff8e3; box-shadow: 0 2px 8px rgba(67, 40, 24, .18); }
+    .form-control { border-color: var(--dorado); }
+    .form-control:focus { border-color: var(--caramelo); box-shadow: 0 0 0 .2rem rgba(153, 88, 42, .25); }
+    .btn-cafe { background-color: var(--vino); border-color: var(--vino); color: #fff; }
+    .btn-cafe:hover, .btn-cafe:focus { background-color: var(--cafe-oscuro); border-color: var(--cafe-oscuro); color: #fff; }
+    .btn-filtro { background-color: transparent; border-color: var(--caramelo); color: var(--caramelo); }
+    .btn-filtro:hover, .btn-filtro:focus { background-color: var(--caramelo); border-color: var(--caramelo); color: #fff; }
+    .btn-peligro { background-color: transparent; border-color: var(--vino); color: var(--vino); }
+    .btn-peligro:hover, .btn-peligro:focus { background-color: var(--vino); border-color: var(--vino); color: #fff; }
+ 
+    .table { --bs-table-bg: transparent; --bs-table-striped-bg: rgba(187, 148, 87, .18); --bs-table-hover-bg: rgba(153, 88, 42, .22); color: var(--cafe-oscuro); }
+    .table thead th { background-color: var(--dorado); color: var(--cafe-oscuro); border-color: var(--dorado); }
+    .totales { border-top: 2px solid var(--dorado); }

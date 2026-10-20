@@ -12,16 +12,22 @@ function generarNumeroAleatorio(){
         if (numero == numeroAleatorio){
             mensaje=`!Es sorprendete, pudiste adivinar el numero oculto(${numeroAleatorio})
             Refresque la pagina para volver a jugar.`;
-        } else if(intentos == numeroIntentos){
+        }else if(intentos == numeroIntentos){
             mensaje=`Su numero de intentos ha terminado.
             El numero oculto era: ${numeroAleatorio}. Refresque la pagina para volver a jugar.`
+        
         }else{
-            mensaje = `Vuelve a intertar. Quedan ${numeroIntentos - intentos} intentos`;
-        }
-    
-        intentos++;
-    } else{
+            if(numeroAleatorio<numero){
+                mensaje=`El numero es menor que ${numero} Vuelve a intertar. Quedan ${numeroIntentos - intentos} intentos`;
 
+            }else if(numeroAleatorio>numero){
+                mensaje=`El numero es mayor que ${numero} Vuelve a intertar. Quedan ${numeroIntentos - intentos} intentos`
+
+            }
+        }
+        
+        intentos++;
+    }else{
         mensaje = `Su numero de intentos ha terminado.
         El mensaje oculto era: ${numeroAleatorio}. Refresque la pagina para volver a jugar.`
     }
