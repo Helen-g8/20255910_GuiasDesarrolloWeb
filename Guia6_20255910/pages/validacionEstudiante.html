@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/stylesFunciones.css" rel="stylesheet" />
+    <link rel="icon" href="../img/js.png" sizes="32x32" type="image/png" />
+    <title>Validación de estudiante</title>
+</head>
+
+<body>
+    <header>
+        <div class="px-3 py-2 text-bg-dark fixed-top">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="../indexFunciones.html"
+                        class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                        <img src="../img/js.png" alt="" width="32" height="32" class="me-2" />
+                    </a>
+
+                    <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small nav-bar">
+                        <li class="text-center">
+                            <a href="recursividad.html" class="nav-link text-white">
+                                <i class="bi bi-arrow-clockwise bi-2 d-block"></i>
+                                Recursividad
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="tabla.html" class="nav-link text-white">
+                                <i class="bi bi-table bi-2 d-block"></i>
+                                Creando una Tabla
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="formulario.html" class="nav-link text-white">
+                                <i class="bi bi-ui-checks bi-2 d-block"></i>
+                                Formulario
+                            </a>
+                        </li>
+                        <li class="text-center">
+                            <a href="validacionEstudiante.html" class="nav-link text-white">
+                                <i class="bi bi-patch-check bi-2 d-block"></i>
+                                Validación
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-lg">
+        <div class="container-fluid py-5 mt-5">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="p-4 bg-light border rounded-3">
+                        <h3>Ficha de estudiante</h3>
+                        <form id="idFormEstudiante" novalidate onsubmit="return false">
+
+                            <div class="mb-3">
+                                <label for="idCarnet" class="form-label">Carnet</label>
+                                <input type="text" class="form-control" id="idCarnet" placeholder="AB001" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idNombreCompleto" class="form-label">Nombre completo</label>
+                                <input type="text" class="form-control" id="idNombreCompleto"
+                                    placeholder="Ana María López" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idDui" class="form-label">DUI</label>
+                                <input type="text" class="form-control" id="idDui" placeholder="12345678-9"
+                                    maxlength="10" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idNit" class="form-label">NIT</label>
+                                <input type="text" class="form-control" id="idNit" placeholder="1234-123456-123-1"
+                                    maxlength="17" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idFechaNac" class="form-label">Fecha de nacimiento</label>
+                                <input type="text" class="form-control" id="idFechaNac" placeholder="dd/mm/aaaa"
+                                    maxlength="10" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idCorreo" class="form-label">Correo electrónico</label>
+                                <input type="text" class="form-control" id="idCorreo"
+                                    placeholder="usuario@correo.com" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="idEdad" class="form-label">Edad</label>
+                                <input type="text" class="form-control" id="idEdad" placeholder="20" maxlength="3" />
+                                <div class="invalid-feedback"></div>
+                            </div>
+
+                            <button type="button" class="btn btn-success" id="idBtnValidar">
+                                <i class="bi bi-check2-circle"></i> Validar ficha
+                            </button>
+                            <button type="button" class="btn btn-danger" id="idBtnLimpiarFicha">
+                                <i class="bi bi-trash"></i> Limpiar
+                            </button>
+                        </form>
+                        <div id="idResultado" class="mt-3 fw-bold"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/validacionEstudiante.js" defer></script>
+</body>
+
+</html>
